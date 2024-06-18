@@ -1,0 +1,20 @@
+import math
+
+def term(k, x):
+  """Вычисляет k-й член ряда."""
+  return (-1)**(k - 1) / (math.sin(k * x) + 18 + k**2)
+
+def series_sum(x, epsilon=1e-6):
+  """Вычисляет сумму ряда с заданной точностью."""
+  sum = 0
+  k = 1
+  while abs(term(k, x)) > epsilon:
+    sum += term(k, x)
+    k += 1
+  return sum
+
+# Пример использования:
+x = math.pi / 4
+result = series_sum(x)
+
+print(f"Сумма ряда при x = {x:.2f}: {result:.6f}")
