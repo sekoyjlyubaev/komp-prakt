@@ -1,0 +1,17 @@
+
+import scipy.integrate as integrate
+import numpy as np
+
+# Определяем подынтегральную функцию
+f = lambda x: np.exp(-2*x) * np.sin(18*x)
+
+# Задаем пределы интегрирования (неопределенный интеграл - от 0 до бесконечности)
+a = 0
+b = np.inf
+
+# Вычисляем интеграл методом квадратур
+result, error = integrate.quad(f, a, b)
+
+# Выводим результат с заданной точностью
+print(f"Значение интеграла: {result:.6f}")
+print(f"Погрешность: {error:.6e}")
